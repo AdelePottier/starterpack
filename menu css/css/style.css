@@ -1,0 +1,49 @@
+
+.menu {
+  height: 100vh;
+  background-color: #1e3799;
+  width: 200px;
+}
+
+.menu a {
+  color: #ffffff;
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  text-decoration: none;
+}
+
+.logo {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.nav {
+  margin-left: -300px;
+  transition-duration: 0.2s;
+}
+
+.nav_open {
+  margin-left: 0px;
+  transition-duration: 0.2s;
+}
+
+@media (min-width: 710px) {
+  .menu {
+    height: 50px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .menu a {
+    padding-top: 10px;
+  }
+
+  .nav {
+    margin: 0;
+  }
+}

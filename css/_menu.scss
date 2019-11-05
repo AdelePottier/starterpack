@@ -1,0 +1,163 @@
+$background-general: #ffffff;
+$transition-duration: 0.2s;
+
+
+.menu {
+    height: 100vh;
+    background-color: #1e3799;
+    width: 200px;
+
+    
+  
+  }
+
+.nav {
+    margin-left: -300px;
+    transition-duration: $transition-duration;
+
+    .logo {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 24px;
+    }
+
+    a {
+        color: #ffffff;
+        font-family: sans-serif;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding-top: 30px;
+        text-decoration: none;
+    }
+  }
+ 
+.nav_open {
+    margin-left: 0px;
+    transition-duration: $transition-duration;
+}
+
+//Gestion du bouton 
+
+.toggle_btn {
+    height: 54px;
+    width: 54px;
+    position: relative;
+    float: right;
+    margin-right: 20px;
+    margin-top: 5px;
+    cursor: pointer;
+
+    span {
+        display: block;
+        height: 3px;
+        width: 22px;
+        background-color: #ffffff;
+      
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+   
+    }
+
+    span:before, span:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      
+      display: block;
+      width: 22px;
+      height: 3px;
+      
+      background-color: #ffffff;
+      transform: translateY(-6px);
+      transition: transform $transition-duration;
+    }
+    
+    span:after {
+        transform: translateY(6px);
+    }
+    
+    span:before {
+        transform: translateY(-6px);
+    }
+
+    &:hover {
+        span:after {
+            transform: translateY(8px);
+        }
+
+        span:before {
+          transform: translateY(-8px);
+        }
+    }
+  }
+
+
+.menu-icon-cross {
+    transition: transform $transition-duration;
+    span {
+        z-index: 2;
+        transition: background $transition-duration, transform $transition-duration;
+    
+        &:before, &:after {
+            transform-origin: 50% 50%;
+        }
+    
+    }  
+}
+
+.is-opened {
+    transform: rotate(180deg);
+}
+  
+.toggle_btn svg {
+    z-index: 1;
+    fill: #1e3799;
+    stroke-width: 1px;
+    stroke: #ffffff;
+    stroke-dasharray: 170;
+    stroke-dashoffset: 170;
+    transition: stroke-dashoffset $transition-duration;
+}
+  
+  .menu-icon-cross.is-opened span {
+    background: transparent;
+  }
+  
+  .menu-icon-cross.is-opened span:before {
+    transform: translateY(0) rotate(45deg);
+  }
+  
+  .menu-icon-cross.is-opened span:after {
+    transform: translateY(0) rotate(-45deg);
+  }
+  
+  .menu-icon-cross.is-opened svg {
+    transform: rotate(-180deg);
+    stroke-dashoffset: 0;
+  }
+  
+  
+@media (min-width: 710px) {
+    .menu {
+      height: 50px;
+      width: 100vw;
+      display: flex;
+      justify-content: space-around;
+
+      a {
+        padding-top: 10px;
+      }
+    }
+  
+    .nav {
+      margin: 0;
+    }
+
+    .toggle_btn {
+        display: none;
+      }
+}

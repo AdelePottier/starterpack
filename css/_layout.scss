@@ -1,0 +1,17 @@
+//Breakpoint
+
+$breakpoint-destop: 768px;
+$breakpoint-bigDestop: 1000px;
+
+$backgroundcolor-general: #ffffff;
+
+.inner {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .inner {
+        width: $breakpoint-destop;
+        margin: 0 auto;
+    }
+}
